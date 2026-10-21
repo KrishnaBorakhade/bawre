@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Integrated Healthcare System</title>
+    <link rel="stylesheet" href="../static/css/index.css">
+    <!-- Include Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('../static/images/pill_testing.jpg');
+            background-size: cover;
+        }
+        #header {
+    display: flex;
+    align-items: center;
+    padding: 15px 30px;
+    background-color: #2c3e50;
+    color: white;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    margin-right: 10px;
+}
+
+.logo .brand-name {
+    font-size: 24px;
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+
+.container {
+    text-align: center;
+    margin: 50px auto;
+    max-width: 800px;
+}
+
+h1 {
+    font-size: 36px;
+    color: #2c3e50;
+    margin-bottom: 100px;
+    margin-top: 100px;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    gap: 45px;
+    flex-wrap: wrap;
+}
+
+.icon-button {
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    padding: 20px;
+    width: 150px;
+    text-align: center;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.icon-button:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.button-icon {
+    width: 170px;
+    height: 170px;
+    margin-bottom: 15px;
+}
+
+.icon-button p {
+    margin: 0px;
+    color: #2c3e50;
+    font-weight: bold;
+    font-size: 25px;
+}
+    </style>
+</head>
+<body>
+    <!-- nav bar start -->
+    <div id="header">
+        <div class="logo">
+            <img src="../static/images/Pill Logo 1.png" width="50" height="50" alt="Logo">
+            <a href="#" class="brand-name">The Pill Detective</a>
+        </div>
+    </div>
+    <!-- Hero Section -->
+    <div class="container">
+        <h1>AI Integrated Healthcare System</h1>
+        <div class="button-container">
+            <div class="icon-button" onclick="navigateTo('/pill')">
+                <img src="../static/images/img1.png" alt="Pill Identifier" class="button-icon">
+                <p>Pill-Identifier</p>
+            </div>
+            <div class="icon-button" onclick="navigateTo('/consultation')">
+                <img src="../static/images/image2.avif" alt="Symptoms Based Consultation" class="button-icon">
+                <p>Symptoms Based Consultation</p>
+            </div>
+            <div class="icon-button" onclick="navigateTo('/navigator')">
+                <img src="../static/images/image3.png!sw800" alt="Medicine Navigator" class="button-icon">
+                <p>Medicine-Navigator</p>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        function navigateTo(url) {
+            window.location.href = url;
+        }
+    </script>
+</body>
+</html>

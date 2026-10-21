@@ -1,0 +1,11 @@
+click
+Flask
+Flask_Cors
+keras
+numpy
+pandas
+SQLAlchemy
+tensorflow
+tensorflow_intel
+Werkzeug
+pillow

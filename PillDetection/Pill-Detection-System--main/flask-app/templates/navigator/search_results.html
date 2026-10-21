@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Results</title>
+    <link rel="stylesheet" href="../static/style.css">
+</head>
+<style>
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-image: url('../static/images/240.jpg'); 
+    background-size: cover; 
+    background-position: center; 
+    background-attachment: fixed; 
+    
+}
+
+.container {
+    width: 70%;
+    max-width: 700px;
+    margin-left: 5%;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-left: 25%;
+    background-color: #ddd;
+    margin-top: 10%;
+    
+}
+
+h2 {
+    color: #333;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+
+table th,
+table td {
+    padding: 12px 15px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+table th {
+    background-color: #007bff;
+    color: white;
+}
+
+table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+table tr:hover {
+    background-color: #f1f1f1;
+}
+
+a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+p {
+    text-align: center;
+    color: #666;
+}
+
+a[href='/'] {
+    display: inline-block;
+    margin-top: 20px;
+    text-align: center;
+    background-color: #007bff;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 4px;
+    text-decoration: none;
+}
+
+a[href='/']:hover {
+    background-color: #0056b3;
+}
+footer {
+    text-align: center;
+    margin-top: 50px;
+    color: #95a5a6;
+    font-size: 14px;
+}
+
+</style>
+<body>
+    <div class="container">
+        <h2>Search Results for "{{ medicine }}"</h2>
+        {% if stores %}
+            <table>
+                <thead>
+                    <tr>
+                        <th>Medical Store</th>
+                        <th>Google Maps Link</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for store in stores %}
+                        <tr>
+                            <td>{{ store.name }}</td>
+                            <td><a href="{{ store.google_maps_link }}" target="_blank">View on Google Maps</a></td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+            <p>No stores found with "{{ medicine }}" in stock.</p>
+        {% endif %}
+        <a href="/">Search Again</a>
+    </div>
+    <footer>
+        &copy; 2024 Your Medicine Finder App
+    </footer>
+</body>
+
+</html>

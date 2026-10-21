@@ -1,0 +1,10 @@
+=== PATIENT INFORMATION ===
+name: Aksahy Kumar
+age: 23
+current_dosage: Alzhiemer tablet
+pills:
+  - Pexep
+  - Ethizolam
+pill_colors:
+  - white
+  - blue

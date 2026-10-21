@@ -1,0 +1,39 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+holistic_env/
+venv/
+.venv/
+env/
+ENV/
+
+# Environment variables & Credentials
+.env
+.env*.local
+!.env.example
+firebase_service_account*.json
+*.pem
+*.key
+
+# Node / Frontend
+node_modules/
+**/node_modules/
+dist/
+build/
+.eslintcache
+
+# Project generated runtime files & logs
+logs/
+temp_clips/
+captured_frames/
+activity_log.txt
+*.zip
+
+# OS / Editor files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

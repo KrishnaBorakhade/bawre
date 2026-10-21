@@ -1,0 +1,467 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Health Care Center</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+  </head>
+
+  <style>
+    body {
+    background-color: #f0f2f5; /* Light background color */
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    text-align: center;
+    color: #28a745; /* Updated to a green tone */
+    font-weight: bold;
+    font-size: 2.5rem;
+    animation: fadeInDown 1s ease-in-out;
+}
+
+/* Container for the form */
+.container {
+    background: #333; /* Darker background for the container */
+    color: white;
+    border-radius: 15px;
+    padding: 40px;
+    max-width: 600px;
+    margin: 0 auto; /* Center the container */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Shadow effect */
+    animation: fadeInUp 1s ease-in-out;
+}
+
+/* Styling for the labels and select fields */
+form label {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+    color: #f0f2f5;
+}
+
+form select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 2px solid #28a745; /* Green border for select fields */
+    border-radius: 5px;
+    background-color: #444; /* Slightly lighter background */
+    color: white;
+    font-size: 1rem;
+    transition: border-color 0.3s ease, background-color 0.3s ease; /* Smooth transition */
+}
+
+/* Hover and focus states for select fields */
+form select:focus,
+form select:hover {
+    border-color: #50d890; /* Lighter green border on hover */
+    background-color: #555; /* Slightly lighter on hover */
+}
+
+/* Styling for the submit button */
+form button[type="submit"] {
+    background-color: #28a745; /* Green button background */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 15px 20px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    width: 100%;
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth transition */
+    margin-top: 10px;
+}
+
+/* Hover effect for the button */
+form button[type="submit"]:hover {
+    background-color: #50d890; /* Lighter green on hover */
+    transform: scale(1.05); /* Slight scale up on hover */
+    box-shadow: 0 6px 12px rgba(80, 216, 144, 0.3); /* Light shadow effect */
+}
+
+/* Fade-in animations */
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+      .container {
+      background: black;
+      color: white;
+      border-radius: 15px;
+      padding: 40px;
+    }
+
+    .result-container {
+    display: flex; /* Use flexbox layout */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    flex-wrap: wrap; /* Allow wrapping to next line */
+    margin-top: 20px; /* Add some spacing on top */
+}
+
+    .modal-header, .modal-body {
+      background-color: #020606;
+      color: white;
+    }
+    .toggle-button {
+      padding: 4px;
+      margin: 5px 40px 5px 0;
+      font-size: 20px;
+      font-weight: bold;
+      width: 140px;
+      border-radius: 5px;
+      color: black;
+    }
+     
+    </style>
+</head>
+<body>
+    
+
+
+
+
+<!-- main form of page -->
+<h1 class="mt-4 my-4 text-center text-green">Health Care Center</h1>
+<div class="container my-4 mt-4" style="background: black; color: white; border-radius: 15px; padding: 40px;">
+    <form method="POST" action="/predict">
+        <label for="symptom1">Select Symptom 1:</label>
+        <select name="symptom1" id="symptom1">
+            <option value="">Select a symptom</option>
+            <option value="itching">Itching</option>
+            <option value="skin_rash">Skin Rash</option>
+            <option value="nodal_skin_eruptions">Nodal Skin Eruptions</option>
+            <option value="continuous_sneezing">Continuous Sneezing</option>
+            <option value="shivering">Shivering</option>
+            <option value="chills">Chills</option>
+            <option value="joint_pain">Joint Pain</option>
+            <option value="stomach_pain">Stomach Pain</option>
+            <option value="acidity">Acidity</option>
+            <option value="ulcers_on_tongue">Ulcers on Tongue</option>
+            <option value="muscle_wasting">Muscle Wasting</option>
+            <option value="vomiting">Vomiting</option>
+            <option value="burning_micturition">Burning Micturition</option>
+            <option value="spotting_urination">Spotting Urination</option>
+            <option value="fatigue">Fatigue</option>
+            <option value="weight_gain">Weight Gain</option>
+            <option value="anxiety">Anxiety</option>
+            <option value="cold_hands_and_feets">Cold Hands and Feets</option>
+            <option value="mood_swings">Mood Swings</option>
+            <option value="weight_loss">Weight Loss</option>
+            <option value="restlessness">Restlessness</option>
+            <option value="lethargy">Lethargy</option>
+            <option value="patches_in_throat">Patches in Throat</option>
+            <option value="irregular_sugar_level">Irregular Sugar Level</option>
+            <option value="cough">Cough</option>
+            <option value="high_fever">High Fever</option>
+            <!-- Add all other symptoms here -->
+        </select>
+    
+        <label for="symptom2">Select Symptom 2:</label>
+        <select name="symptom2" id="symptom2">
+            <option value="">Select a symptom</option>
+            <option value="itching">Itching</option>
+            <option value="skin_rash">Skin Rash</option>
+            <option value="nodal_skin_eruptions">Nodal Skin Eruptions</option>
+            <option value="continuous_sneezing">Continuous Sneezing</option>
+            <option value="shivering">Shivering</option>
+            <option value="chills">Chills</option>
+            <option value="joint_pain">Joint Pain</option>
+            <option value="stomach_pain">Stomach Pain</option>
+            <option value="acidity">Acidity</option>
+            <option value="ulcers_on_tongue">Ulcers on Tongue</option>
+            <option value="muscle_wasting">Muscle Wasting</option>
+            <option value="vomiting">Vomiting</option>
+            <option value="burning_micturition">Burning Micturition</option>
+            <option value="spotting_urination">Spotting Urination</option>
+            <option value="fatigue">Fatigue</option>
+            <option value="weight_gain">Weight Gain</option>
+            <option value="anxiety">Anxiety</option>
+            <option value="cold_hands_and_feets">Cold Hands and Feets</option>
+            <option value="mood_swings">Mood Swings</option>
+            <option value="weight_loss">Weight Loss</option>
+            <option value="restlessness">Restlessness</option>
+            <option value="lethargy">Lethargy</option>
+            <option value="patches_in_throat">Patches in Throat</option>
+            <option value="irregular_sugar_level">Irregular Sugar Level</option>
+            <option value="cough">Cough</option>
+            <option value="high_fever">High Fever</option>
+            <!-- Add all other symptoms here -->
+        </select>
+    
+        <label for="symptom3">Select Symptom 3:</label>
+        <select name="symptom3" id="symptom3">
+            <option value="">Select a symptom</option>
+            <option value="itching">Itching</option>
+            <option value="skin_rash">Skin Rash</option>
+            <option value="nodal_skin_eruptions">Nodal Skin Eruptions</option>
+            <option value="continuous_sneezing">Continuous Sneezing</option>
+            <option value="shivering">Shivering</option>
+            <option value="chills">Chills</option>
+            <option value="joint_pain">Joint Pain</option>
+            <option value="stomach_pain">Stomach Pain</option>
+            <option value="acidity">Acidity</option>
+            <option value="ulcers_on_tongue">Ulcers on Tongue</option>
+            <option value="muscle_wasting">Muscle Wasting</option>
+            <option value="vomiting">Vomiting</option>
+            <option value="burning_micturition">Burning Micturition</option>
+            <option value="spotting_urination">Spotting Urination</option>
+            <option value="fatigue">Fatigue</option>
+            <option value="weight_gain">Weight Gain</option>
+            <option value="anxiety">Anxiety</option>
+            <option value="cold_hands_and_feets">Cold Hands and Feets</option>
+            <option value="mood_swings">Mood Swings</option>
+            <option value="weight_loss">Weight Loss</option>
+            <option value="restlessness">Restlessness</option>
+            <option value="lethargy">Lethargy</option>
+            <option value="patches_in_throat">Patches in Throat</option>
+            <option value="irregular_sugar_level">Irregular Sugar Level</option>
+            <option value="cough">Cough</option>
+            <option value="high_fever">High Fever</option>
+        </select>
+    
+        <!-- Add additional symptom fields as needed -->
+    
+        <button type="submit">Predict Disease</button>
+    </form>
+    
+
+</div>
+
+
+{% if predicted_disease %}
+
+<!-- Results -->
+<h1 class="text-center my-4 mt-4">Our AI System Results</h1>
+<div class="container">
+
+    <div class="result-container">
+        <!-- Buttons to toggle display -->
+        <button class="toggle-button" data-bs-toggle="modal" data-bs-target="#diseaseModal" style="padding:4px;  margin: 5px 40px 5px 0; font-size:20px;font-weight:bold; width:140px; border-radius:5px; background:#F39334;color:black;">Disease</button>
+        <button class="toggle-button" data-bs-toggle="modal" data-bs-target="#descriptionModal" style="padding:4px; margin: 5px 40px 5px 0; font-size:20px;font-weight:bold; width:140px; border-radius:5px; background:#268AF3 ;color:black;">Description</button>
+        <button class="toggle-button" data-bs-toggle="modal" data-bs-target="#precautionModal" style="padding:4px; margin: 5px 40px 5px 0; font-size:20px;font-weight:bold; width:140px; border-radius:5px; background:#F371F9 ;color:black;">Precaution</button>
+        <button class="toggle-button" data-bs-toggle="modal" data-bs-target="#medicationsModal" style="padding:4px; margin: 5px 40px 5px 0; font-size:20px;font-weight:bold; width:140px;border-radius:5px; background:#F8576F ;color:black;">Medications</button>
+        <button class="toggle-button" data-bs-toggle="modal" data-bs-target="#workoutsModal" style="padding:4px; margin: 5px 40px 5px 0; font-size:20px;font-weight:bold; width:140px; border-radius:5px; background:#99F741 ;color:black;">Workouts</button>
+        <button class="toggle-button" data-bs-toggle="modal" data-bs-target="#dietsModal" style="padding:4px; margin: 5px 40px 5px 0; font-size:20px;font-weight:bold; width:140px; border-radius:5px; background:#E5E23D;color:black;">Diets</button>
+    </div>
+</div>
+
+{% endif %}
+
+<!-- Disease Modal -->
+    <div class="modal fade" id="diseaseModal" tabindex="-1" aria-labelledby="diseaseModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header" style="background-color: #020606; color:white;"> <!-- Set header background color inline -->
+                    <h5 class="modal-title" id="diseaseModalLabel">Predicted Disease</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                 <div class="modal-body" style="background-color: #modal-body-color"> <!-- Set modal body background color inline -->
+                    <p>{{ predicted_disease }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Description Modal -->
+    <div class="modal fade" id="descriptionModal" tabindex="-1" aria-labelledby="descriptionModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header" style="background-color: #020606; color:white;">
+                    <h5 class="modal-title" id="descriptionModalLabel">Description</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>{{ dis_des }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<!-- Precaution Modal -->
+    <div class="modal fade" id="precautionModal" tabindex="-1" aria-labelledby="precautionModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header" style="background-color: #020606; color:white;">
+                    <h5 class="modal-title" id="precautionModalLabel">Precaution</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <ul>
+                        {% for i in my_precautions %}
+                            <li>{{ i }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <!-- Medications Modal -->
+    <div class="modal fade" id="medicationsModal" tabindex="-1" aria-labelledby="medicationsModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header" style="background-color: #020606; color:white;">
+                    <h5 class="modal-title" id="medicationsModalLabel">Medications</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <ul>
+                        {% for i in medications %}
+                            <li>{{ i }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Workouts Modal -->
+    <div class="modal fade" id="workoutsModal" tabindex="-1" aria-labelledby="workoutsModalLabel" aria-hidden="true">
+        <div class="modal-dialog" >
+            <div class="modal-content">
+                <div class="modal-header" style="background-color: #020606; color:white;">
+                    <h5 class="modal-title" id="workoutsModalLabel">Workouts</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <ul>
+                        {% for i in workout %}
+                            <li>{{ i }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Diets Modal -->
+    <div class="modal fade" id="dietsModal" tabindex="-1" aria-labelledby="dietsModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header" style="background-color: #020606; color:white;">
+                    <h5 class="modal-title" id="dietsModalLabel">Diets</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <ul>
+                        {% for i in my_diet %}
+                            <li>{{ i }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+        <script>
+    const startSpeechRecognitionButton = document.getElementById('startSpeechRecognition');
+    const transcriptionDiv = document.getElementById('transcription');
+
+    startSpeechRecognitionButton.addEventListener('click', startSpeechRecognition);
+
+    function startSpeechRecognition() {
+        const recognition = new webkitSpeechRecognition(); // Use webkitSpeechRecognition for compatibility
+
+        recognition.lang = 'en-US'; // Set the language for recognition
+
+        recognition.onresult = function (event) {
+            const result = event.results[0][0].transcript;
+            transcriptionDiv.textContent = result;
+        };
+
+        recognition.onend = function () {
+            console.log('Speech recognition ended.');
+        };
+
+        recognition.start();
+    }
+</script>
+<!-- for multiple sym -->
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+    const symptomsSelect = document.getElementById("symptoms");
+    const predictButton = document.getElementById("predict-btn");
+    const resultDiv = document.getElementById("result");
+
+    // Limit to 3 symptoms
+    symptomsSelect.addEventListener("change", () => {
+        if (symptomsSelect.selectedOptions.length > 3) {
+            alert("You can select a maximum of 3 symptoms.");
+            // Deselect the last selected option
+            symptomsSelect.selectedOptions[symptomsSelect.selectedOptions.length - 1].selected = false;
+        }
+    });
+
+    // Handle prediction button click
+    predictButton.addEventListener("click", () => {
+        const selectedSymptoms = Array.from(symptomsSelect.selectedOptions).map(option => option.value);
+
+        if (selectedSymptoms.length === 0) {
+            alert("Please select at least one symptom.");
+            return;
+        }
+
+        // Example: Call to server or ML model for prediction
+        predictDisease(selectedSymptoms);
+    });
+
+    // Function to handle disease prediction
+    function predictDisease(symptoms) {
+        // Placeholder for actual prediction logic or API call
+        // Example: Fetch request to backend server
+        fetch("/predict", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({ symptoms })
+        })
+            .then(response => response.json())
+            .then(data => {
+                // Display predicted disease
+                resultDiv.textContent = `Predicted Disease: ${data.disease}`;
+            })
+            .catch(error => {
+                console.error("Error during prediction:", error);
+                resultDiv.textContent = "Error predicting disease. Please try again.";
+            });
+    }
+});
+
+</script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+</body>
+
+</html>

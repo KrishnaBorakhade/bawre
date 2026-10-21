@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find Medical Store</title>
+    <link rel="stylesheet" href="../static/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<style>
+
+    body {
+        font-family: Arial, sans-serif;
+        background-image: url('../static/images/flat-lay.jpg'); 
+        background-size: cover; 
+        background-position: center; 
+        background-attachment: fixed; 
+        margin: 0;
+        padding: 0;
+    }
+    h1 {
+    text-align: center;
+    color: #151313;
+    margin-top: 5%;
+}
+.container {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    background: rgba(236, 241, 238, 0.9);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 8%;
+}
+form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+label {
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 8px;
+}
+input {
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+}
+input:focus {
+    border-color: #4CAF50;
+    outline: none;
+}
+button {
+    background-color: #6cc46f;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+button:hover {
+    background-color: #45a049;
+}
+.input-icon {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #888;
+}
+.input-container {
+    position: relative;
+    
+}
+.input-container input {
+    padding-left: 30px;
+    
+}
+.form-group {
+    position: relative;
+    margin-bottom: 20px;
+}
+.form-group i {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #888;
+}
+    </style>
+<body>
+    <div class="container">
+        <h1>Find Available Medicine</h1>
+        <form action="/search" method="POST">
+            <label for="medicine_name">Medicine Name:</label>
+            <input type="text" id="medicine_name" name="medicine_name" required>
+            <button type="submit">Search</button>
+        </form>
+    </div>
+</body>
+</html>
