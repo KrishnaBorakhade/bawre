@@ -1,0 +1,28 @@
+# Core Computer Vision & ML
+opencv-python>=4.8.0
+mediapipe>=0.10.0
+ultralytics>=8.0.0
+tensorflow>=2.15.0
+keras>=3.0.0
+
+# DeepFace & Face Detection
+deepface>=0.0.90
+mtcnn>=0.1.0
+retina-face>=0.0.17
+
+# Numerical, Data & Plotting
+numpy>=1.24.0
+pandas>=2.0.0
+matplotlib>=3.8.0
+Pillow>=10.0.0
+
+# Cloud & Alerts
+twilio>=8.0.0
+firebase-admin>=6.0.0
+python-dotenv>=1.0.0
+
+# Speech & Utilities
+pyttsx3>=2.90
+requests>=2.31.0
+tqdm>=4.66.0
+rich>=13.0.0
